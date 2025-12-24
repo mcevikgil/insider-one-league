@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
@@ -18,6 +19,6 @@ class Team extends Model
     ];
 
     protected $casts = [
-        'is_selected'=> 'boolean'
+        'is_selected' => 'boolean'
     ];
 }

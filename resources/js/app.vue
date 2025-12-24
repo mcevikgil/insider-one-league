@@ -57,7 +57,7 @@
                                     {{ match.home_team?.short_name }}
                                 </div>
                                 <span class="text-sm font-semibold dark:text-white truncate">{{ match.home_team?.name
-                                    }}</span>
+                                }}</span>
                             </div>
                             <div class="flex flex-col items-center justify-center w-1/3">
                                 <span :class="[
@@ -69,7 +69,7 @@
                             </div>
                             <div class="flex items-center gap-3 w-1/3 justify-end">
                                 <span class="text-sm font-semibold dark:text-white truncate">{{ match.away_team?.name
-                                    }}</span>
+                                }}</span>
                                 <div
                                     class="size-8 rounded-full bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center text-white text-[10px] font-bold">
                                     {{ match.away_team?.short_name }}
@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="xl:col-span-3 flex flex-col gap-4">
-                    <h2 class="text-lg font-bold text-slate-900 dark:text-white">Championship Odds</h2>
+                    <h2 class="text-lg font-bold text-slate-900 dark:text-white">Championship Prodictions</h2>
                     <PredictionPanel :predictions="predictions" />
                 </div>
             </div>
@@ -176,8 +176,10 @@ const loadStandings = async () => {
 };
 
 const loadPredictions = async () => {
-    const data = await getPredictions();
-    predictions.value = data.predictions;
+    if (currentWeek.value >= 4) {
+        const data = await getPredictions();
+        predictions.value = data.predictions;
+    } else { return; }
 };
 
 const loadCurrentWeek = async () => {
@@ -271,6 +273,7 @@ const handleReset = async () => {
 
 const handleStartSimulate = async (params) => {
     phase.value = 'simulation';
+    await refreshAll();
 }
 
 // Lifecycle

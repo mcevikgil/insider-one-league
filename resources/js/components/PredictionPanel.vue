@@ -7,7 +7,7 @@
         </div>
 
         <div v-if="predictions.length === 0" class="flex-1 flex items-center justify-center text-slate-400 text-sm">
-            Play matches to see predictions
+            Predictions will be visible after 4 weeks
         </div>
 
         <div v-else class="flex flex-col gap-4 flex-1">

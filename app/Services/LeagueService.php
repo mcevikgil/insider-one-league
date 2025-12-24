@@ -13,7 +13,7 @@ class LeagueService
         $teams = Team::where('is_selected', true)->get();
 
         if ($teams->count() !== 4) {
-            return ['success' => false, 'message' => 'Exaxtly 4 teams must be selected'];
+            return ['success' => false, 'message' => 'Exactly 4 teams must be selected'];
         }
 
         Game::truncate();

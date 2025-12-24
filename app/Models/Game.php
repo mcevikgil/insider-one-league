@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -20,11 +21,13 @@ class Game extends Model
         'is_played' => 'boolean'
     ];
 
-    public function homeTeam(): BelongsTo {
+    public function homeTeam(): BelongsTo
+    {
         return $this->belongsTo(Team::class, 'home_team_id');
     }
 
-    public function awayTeam(): BelongsTo {
+    public function awayTeam(): BelongsTo
+    {
         return $this->belongsTo(Team::class, 'away_team_id');
     }
 }

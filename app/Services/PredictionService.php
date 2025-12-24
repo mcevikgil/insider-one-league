@@ -23,7 +23,7 @@ class PredictionService
         foreach ($teams as $team) {
             $championships[$team->id] = 0;
         }
-        
+
         for ($i = 0; $i < self::SIMULATIONS; $i++) {
             $championId = $this->simulateRemainingSeasonAndGetChampion();
             if ($championId) {
